@@ -4,13 +4,14 @@
 #
 Name     : click
 Version  : 6.7
-Release  : 2
+Release  : 3
 URL      : http://pypi.debian.net/click/click-6.7.tar.gz
 Source0  : http://pypi.debian.net/click/click-6.7.tar.gz
 Summary  : A simple wrapper around optparse for powerful command line utilities.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: click-legacypython
+Requires: click-python3
 Requires: click-python
 Requires: click
 Requires: colorama
@@ -31,6 +32,7 @@ sensible defaults out of the box.
 %package legacypython
 Summary: legacypython components for the click package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the click package.
@@ -40,9 +42,19 @@ legacypython components for the click package.
 Summary: python components for the click package.
 Group: Default
 Requires: click-legacypython
+Requires: click-python3
 
 %description python
 python components for the click package.
+
+
+%package python3
+Summary: python3 components for the click package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the click package.
 
 
 %prep
@@ -53,12 +65,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505000133
+export SOURCE_DATE_EPOCH=1507151712
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505000133
+export SOURCE_DATE_EPOCH=1507151712
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -74,5 +86,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
