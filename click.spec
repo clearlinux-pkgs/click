@@ -4,7 +4,7 @@
 #
 Name     : click
 Version  : 6.7
-Release  : 10
+Release  : 11
 URL      : http://pypi.debian.net/click/click-6.7.tar.gz
 Source0  : http://pypi.debian.net/click/click-6.7.tar.gz
 Summary  : A simple wrapper around optparse for powerful command line utilities.
