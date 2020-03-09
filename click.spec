@@ -5,15 +5,14 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : click
-Version  : 7.0
-Release  : 23
-URL      : https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz
-Source1  : https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz.asc
+Version  : 7.1
+Release  : 24
+URL      : https://files.pythonhosted.org/packages/17/95/2028e02161ff874334008e853b1708d6b8d960218fd2f4bf9f6efd5de002/click-7.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/17/95/2028e02161ff874334008e853b1708d6b8d960218fd2f4bf9f6efd5de002/click-7.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/17/95/2028e02161ff874334008e853b1708d6b8d960218fd2f4bf9f6efd5de002/click-7.1.tar.gz.asc
 Summary  : Click CLI for Kubernetes
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: click-license = %{version}-%{release}
 Requires: click-python = %{version}-%{release}
 Requires: click-python3 = %{version}-%{release}
 Requires: Pillow
@@ -33,14 +32,6 @@ BuildRequires : virtualenv
 $ repo_
 repo is a simple example of an application that looks
 and works similar to hg or git.
-
-%package license
-Summary: license components for the click package.
-Group: Default
-
-%description license
-license components for the click package.
-
 
 %package python
 Summary: python components for the click package.
@@ -62,15 +53,15 @@ python3 components for the click package.
 
 
 %prep
-%setup -q -n Click-7.0
-cd %{_builddir}/Click-7.0
+%setup -q -n click-7.1
+cd %{_builddir}/click-7.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582907475
+export SOURCE_DATE_EPOCH=1583775175
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
@@ -83,9 +74,6 @@ python3 setup.py build
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/click
-cp %{_builddir}/Click-7.0/LICENSE.rst %{buildroot}/usr/share/package-licenses/click/f14a55865ea4fd4f67e085fe6841b517b5c3f981
-cp %{_builddir}/Click-7.0/docs/license.rst %{buildroot}/usr/share/package-licenses/click/987ce403d2b39bd7e09a6ffdcdc9649511972a19
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -93,11 +81,6 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/click/987ce403d2b39bd7e09a6ffdcdc9649511972a19
-/usr/share/package-licenses/click/f14a55865ea4fd4f67e085fe6841b517b5c3f981
 
 %files python
 %defattr(-,root,root,-)

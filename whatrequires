@@ -1,8 +1,11 @@
 # This file contains recursive sources that require this package
 Flask
+click
 click-datetime
 click-log
 conda
 distributed
+envs
+khal
 pyhs100
 retype
