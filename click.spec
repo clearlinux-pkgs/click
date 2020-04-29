@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : click
-Version  : 7.1.1
-Release  : 25
-URL      : https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz
-Source1  : https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz.asc
-Summary  : Click CLI for Kubernetes
+Version  : 7.1.2
+Release  : 26
+URL      : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz
+Source1  : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz.asc
+Summary  : Composable command line interface toolkit
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: click-license = %{version}-%{release}
@@ -30,9 +30,16 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-$ repo_
-repo is a simple example of an application that looks
-and works similar to hg or git.
+==========
+        
+        Click is a Python package for creating beautiful command line interfaces
+        in a composable way with as little code as necessary. It's the "Command
+        Line Interface Creation Kit". It's highly configurable but comes with
+        sensible defaults out of the box.
+        
+        It aims to make the process of writing command line tools quick and fun
+        while also preventing any frustration caused by the inability to
+        implement an intended CLI API.
 
 %package license
 Summary: license components for the click package.
@@ -62,20 +69,19 @@ python3 components for the click package.
 
 
 %prep
-%setup -q -n click-7.1.1
-cd %{_builddir}/click-7.1.1
+%setup -q -n click-7.1.2
+cd %{_builddir}/click-7.1.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583845542
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1588182076
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
@@ -84,7 +90,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/click
-cp %{_builddir}/click-7.1.1/LICENSE.rst %{buildroot}/usr/share/package-licenses/click/6fb11e02ffe0f79b74f1c6034b4ae6e7717a69f8
+cp %{_builddir}/click-7.1.2/LICENSE.rst %{buildroot}/usr/share/package-licenses/click/6fb11e02ffe0f79b74f1c6034b4ae6e7717a69f8
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
