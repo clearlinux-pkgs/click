@@ -1,11 +1,16 @@
 # This file contains recursive sources that require this package
 Flask
+black
 click
 click-datetime
 click-log
 conda
 distributed
 envs
+google-auth-oauthlib
+hypothesis
 khal
+nltk
 pyhs100
+python-dotenv
 retype
