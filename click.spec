@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : click
-Version  : 7.1.2
-Release  : 27
-URL      : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz
-Source1  : https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz.asc
+Version  : 8.0.1
+Release  : 28
+URL      : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz.asc
 Summary  : Composable command line interface toolkit
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -19,10 +19,12 @@ Requires: click-python3 = %{version}-%{release}
 Requires: Pillow
 Requires: click
 Requires: colorama
+Requires: importlib-metadata
 BuildRequires : Pillow
 BuildRequires : buildreq-distutils3
 BuildRequires : click
 BuildRequires : colorama
+BuildRequires : importlib-metadata
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
@@ -69,15 +71,15 @@ python3 components for the click package.
 
 
 %prep
-%setup -q -n click-7.1.2
-cd %{_builddir}/click-7.1.2
+%setup -q -n click-8.0.1
+cd %{_builddir}/click-8.0.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1608003656
+export SOURCE_DATE_EPOCH=1625581478
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -90,7 +92,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/click
-cp %{_builddir}/click-7.1.2/LICENSE.rst %{buildroot}/usr/share/package-licenses/click/6fb11e02ffe0f79b74f1c6034b4ae6e7717a69f8
+cp %{_builddir}/click-8.0.1/LICENSE.rst %{buildroot}/usr/share/package-licenses/click/6fb11e02ffe0f79b74f1c6034b4ae6e7717a69f8
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
