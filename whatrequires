@@ -5,6 +5,7 @@ click
 click-datetime
 click-log
 conda
+cookiecutter
 distributed
 envs
 google-auth-oauthlib

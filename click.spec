@@ -6,7 +6,7 @@
 #
 Name     : click
 Version  : 8.0.1
-Release  : 29
+Release  : 30
 URL      : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz
 Source1  : https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz.asc
@@ -16,15 +16,7 @@ License  : BSD-3-Clause
 Requires: click-license = %{version}-%{release}
 Requires: click-python = %{version}-%{release}
 Requires: click-python3 = %{version}-%{release}
-Requires: Pillow
-Requires: click
-Requires: colorama
-Requires: importlib-metadata
-BuildRequires : Pillow
 BuildRequires : buildreq-distutils3
-BuildRequires : click
-BuildRequires : colorama
-BuildRequires : importlib-metadata
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
@@ -79,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1625581478
+export SOURCE_DATE_EPOCH=1627925827
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
