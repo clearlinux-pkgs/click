@@ -1,7 +1,8 @@
 # This file contains recursive sources that require this package
 Flask
+ansible
 black
-click
+bowler
 click-datetime
 click-log
 conda
@@ -11,6 +12,7 @@ envs
 google-auth-oauthlib
 hypothesis
 khal
+moreorless
 nltk
 pyhs100
 python-dotenv

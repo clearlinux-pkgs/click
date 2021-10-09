@@ -1,5 +1,5 @@
 PKG_NAME := click
-URL = https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz
+URL = https://files.pythonhosted.org/packages/d2/be/7a8b32b295aedc3e92494f9a4ac919d394bc04ac9822042953d6f54c2a50/click-8.0.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
